@@ -22,14 +22,14 @@ public class ContactService {
 
         ContactDAO contactB = ContactDAO.builder()
                 .id(UUID.randomUUID())
-                .name("Caramel")
-                .email("Beagle@efzaf.fr")
+                .name("Kurt")
+                .email("Bg59@efzaf.fr")
                 .build();
 
         ContactDAO contactC = ContactDAO.builder()
                 .id(UUID.randomUUID())
-                .name("Rex")
-                .email("Doberman@fzafaz.fr")
+                .name("Angusyoung")
+                .email("BlackANgus@fzafaz.fr")
                 .build();
 
         contacts.put(contactA.getId(), contactA);

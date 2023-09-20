@@ -36,28 +36,28 @@ public class ContactController {
         return "contacts/list";
     }
 
-    @GetMapping("/{dogId}")
-    public String getDogDetails(@PathVariable("contactId") UUID id, org.springframework.ui.Model model) {
-        Optional<ContactDAO> foundDog = contactService.getDogById(id);
+    @GetMapping("/{contactId}")
+    public String getContactDetails(@PathVariable("contactId") UUID id, org.springframework.ui.Model model) {
+        Optional<ContactDAO> foundContact = contactService.getContactById(id);
 
-        if (foundDog.isPresent()) {
-            model.addAttribute("contact", foundDog.get());
+        if (foundContact.isPresent()) {
+            model.addAttribute("contact", foundContact.get());
             model.addAttribute("mode", "details");
 
-            return "contacts/dogForm";
+            return "contacts/form";
         }
 
         throw new ResourceNotFound();
     }
 
     @GetMapping("/add")
-    public String getDogForm(Model model, @RequestParam(value = "exemple", defaultValue = "default") String blabla) {
+    public String getContactForm(Model model, @RequestParam(value = "example", defaultValue = "default") String blabla) {
 //        log.debug("blabla: " + blabla);
 
         model.addAttribute("contact", ContactDAO.builder().build());
         model.addAttribute("mode", "add");
 
-        return "contacts/contactForm";
+        return "contacts/form";
     }
 
     @PostMapping("/add")
